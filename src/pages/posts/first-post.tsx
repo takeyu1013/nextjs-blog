@@ -4,7 +4,7 @@ import Layout from '../../../components/layout';
 
 const FirstPost = () => {
   return (
-  <Layout>
+    <Layout>
       <Head>
         <title>First Post</title>
       </Head>
