@@ -1,11 +1,12 @@
 import { ReactNode } from "react";
+import styles from './layout.module.css';
 
 type Props = {
   children?: ReactNode;
 };
 
 const Layout = ({ children }: Props) => {
-  return <div>{children}</div>;
+  return <div className={styles.container}>{children}</div>;
 };
 
 export default Layout;
