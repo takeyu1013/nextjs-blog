@@ -17,7 +17,7 @@ const Home = () => {
         main {
           padding: 5rem 0;
           flex: 1;
-          dislplay: flex;
+          display: flex;
           flexdirection: column;
           justify-content: center;
           align-items: center;
