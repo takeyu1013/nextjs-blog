@@ -1,29 +1,21 @@
 import Head from 'next/head';
-import Link from 'next/link';
+import Layout, { siteTitle } from '../components/layout';
+import utilStyles from '../styles/utils.module.css';
 
 const Home = () => {
   return (
-    <div>
+    <Layout home>
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>{siteTitle}</title>
       </Head>
-      <main>
-        <h1>
-          Read <Link href="/posts/first-post"><a>this page!</a></Link>
-        </h1>
-      </main>
-      <style jsx>{`
-        main {
-          padding: 5rem 0;
-          flex: 1;
-          display: flex;
-          flexdirection: column;
-          justify-content: center;
-          align-items: center;
-        }
-      `}</style>
-    </div>
+      <section className={utilStyles.haeingMd}>
+        <p>Test</p>
+        <p>
+          (This is a sample website - you'll be building a site like this on{' '}
+          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
+        </p>
+      </section>
+    </Layout>
   );
 };
 
