@@ -12,7 +12,7 @@ type Props = {
 const name = 'Yuto Takeuchi';
 export const siteTitle = 'Next.js Sample Website';
 
-const Layout = ({ children, home }: Props) => {
+export const Layout = ({ children, home }: Props) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -68,5 +68,3 @@ const Layout = ({ children, home }: Props) => {
     </div>
   );
 };
-
-export default Layout;
