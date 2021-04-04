@@ -1,10 +1,10 @@
 import Head from "next/head";
 import Link from "next/link";
-import Layout from '../../components/layout';
+import { Layout } from '../../components/layout';
 
 const FirstPost = () => {
   return (
-    <Layout>
+    <Layout home={false}>
       <Head>
         <title>First Post</title>
       </Head>
