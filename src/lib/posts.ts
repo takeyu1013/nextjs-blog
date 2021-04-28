@@ -4,6 +4,13 @@ import matter from 'gray-matter';
 
 const postsDirectory = path.join(process.cwd(), 'posts');
 
+export type Post = {
+  id: string,
+  title: string
+  date: string,
+  content: string
+};
+
 export const getSortedPostsData = () => {
   const fileNames = fs.readdirSync(postsDirectory);
   const allPostsData = fileNames.map(fileNames => {
@@ -19,13 +26,6 @@ export const getSortedPostsData = () => {
     const post: Post = { id, title, date, content };
     return post;
   });
-
-  type Post = {
-    id: string,
-    title: string
-    date: string,
-    content: string
-  };
 
   return allPostsData.sort((a: Post, b: Post) => {
     if (a.date < b.date) {
