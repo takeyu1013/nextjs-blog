@@ -1,4 +1,4 @@
-import { GetStaticPaths } from 'next';
+import { GetStaticPaths, GetStaticProps } from 'next';
 import { Layout } from '../../components/layout';
 import { getAllPostIds } from '../../lib/posts';
 
@@ -7,6 +7,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths,
     fallback: false
+  };
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  return {
+    props: {
+
+    }
   };
 };
 
