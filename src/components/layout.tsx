@@ -5,8 +5,8 @@ import utilStyles from '../styles/utils.module.css';
 import styles from './layout.module.css';
 
 type Props = {
-  children?: ReactNode;
-  home: boolean;
+  children: ReactNode;
+  home?: boolean;
 };
 
 const name = 'Yuto Takeuchi';
