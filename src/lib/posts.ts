@@ -11,22 +11,23 @@ export const getSortedPostsData = () => {
     const fullPath = path.join(postsDirectory, fileNames);
     const fileContents = fs.readFileSync(fullPath, 'utf-8');
     const matterResult = matter(fileContents);
-    return {
-      id,
-      ...matterResult.data
-    };
+    console.log(matterResult);
+    const data = matterResult.data;
+    const title = data.title as string;
+    const date = data.date as string;
+    const content = matterResult.content as string;
+    const post: Post = { id, title, date, content };
+    return post;
   });
 
-  type Data = {
+  type Post = {
     id: string,
-    date?: Date
+    title: string
+    date: string,
+    content: string
   };
 
-  return allPostsData.sort((a: Data, b: Data) => {
-    // HACK: 型安全にaとbをソートできる様にすべき
-    if (!(a.date && b.date)) {
-      return 1;
-    }
+  return allPostsData.sort((a: Post, b: Post) => {
     if (a.date < b.date) {
       return 1;
     } else {
