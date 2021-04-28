@@ -12,7 +12,18 @@ export const getStaticProps = async () => {
   };
 };
 
-const Home = ({ allPostsData }) => {
+type Props = {
+  allPostsData: Post[]
+};
+
+type Post = {
+  id: string,
+  date: string,
+  title: string,
+  content: string
+};
+
+const Home = ({ allPostsData }: Props) => {
   return (
     <Layout home>
       <Head>
@@ -28,13 +39,13 @@ const Home = ({ allPostsData }) => {
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
         <ul className={utilStyles.list}>
-          {allPostsData.map(({id, date, title}) => (
-            <li className={utilStyles.listItem} key={id}>
-              {title}
+          {allPostsData.map((post: Post) => (
+            <li className={utilStyles.listItem} key={post.id}>
+              {post.title}
               <br />
-              {id}
+              {post.id}
               <br />
-              {date}
+              {post.date}
             </li>
           ))}
         </ul>
