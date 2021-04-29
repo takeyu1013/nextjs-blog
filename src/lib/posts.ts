@@ -45,3 +45,13 @@ export const getAllPostIds = () => {
     };
   });
 };
+
+export const getPostData = (id: string) => {
+  const fullPath = path.join(postsDirectory, `${id}.md`);
+  const fileContents = fs.readFileSync(fullPath, 'utf-8');
+  const matterResult = matter(fileContents);
+  /* return {
+    id,
+    ...(matterResult as { date: string, title: string })
+  }; */
+};
