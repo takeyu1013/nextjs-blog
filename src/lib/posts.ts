@@ -50,8 +50,8 @@ export const getPostData = (id: string) => {
   const fullPath = path.join(postsDirectory, `${id}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf-8');
   const matterResult = matter(fileContents);
-  /* return {
+  return {
     id,
-    ...(matterResult as { date: string, title: string })
-  }; */
+    ...(matterResult.data as { date: string, title: string })
+  };
 };
