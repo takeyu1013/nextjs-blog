@@ -2,6 +2,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
 import { Layout } from '../../components/layout';
 import { getAllPostIds, getPostData } from '../../lib/posts';
+import Date from '../../components/date';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = getAllPostIds();
@@ -36,7 +37,7 @@ const Post = ({ postData }: {
     <br />
     {postData.id}
     <br />
-    {postData.date}
+    <Date dateString={postData.date} />
     <br />
     <div dangerouslySetInnerHTML={{ __html: postData.contentHTML}} />
   </Layout>;
