@@ -48,11 +48,11 @@ export const getAllPostIds = () => {
   });
 };
 
-export const getPostData = (id: string) => {
+export const getPostData = async (id: string) => {
   const fullPath = path.join(postsDirectory, `${id}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const matterResult = matter(fileContents);
-  const processedContent = remark().use(html).process(matterResult.content);
+  const processedContent = await remark().use(html).process(matterResult.content);
   const contentHTML = processedContent.toString();
   return {
     id,
