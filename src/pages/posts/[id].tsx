@@ -21,12 +21,19 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 const Post = ({ postData }: {
   postData: {
+    id: string,
     title: string,
     date: string,
     content: string
   }
 }) => {
-  return <Layout>...</Layout>;
+  return <Layout>
+    {postData.title}
+    <br />
+    {postData.id}
+    <br />
+    {postData.date}
+  </Layout>;
 };
 
 export default Post;
