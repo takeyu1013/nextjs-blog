@@ -18,7 +18,6 @@ export const getSortedPostsData = () => {
     const fullPath = path.join(postsDirectory, fileNames);
     const fileContents = fs.readFileSync(fullPath, 'utf-8');
     const matterResult = matter(fileContents);
-    console.log(matterResult);
     const data = matterResult.data;
     const title = data.title as string;
     const date = data.date as string;
